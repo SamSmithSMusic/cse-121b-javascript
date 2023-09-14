@@ -1,17 +1,19 @@
 // 🔍 Part 1 error
-const userName = "Moroni";
+let userName = "Moroni";
 console.log(`Username: ${userName}`);
 userName = "Moronihah";
 console.log(`Username: ${userName}`);
 
 // 🔍 Part 2 error
-const currentDateAndTime = DateTime;
+const currentDateAndTime = Date();
 console.log(`It is now ${currentDateAndTime}`);
 
 // 🔍 Part 3 error. The following statement calls a function named total that accepts any number of arguments and returns the sum. The returned value is stored in a variable named theTotal. 1-10 are the arguments.
 
 let theTotal = total(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 console.log(`The total is ${theTotal}`);
+
+// I attempted to solve the optional issue, but the "aNumber" was already a string with the value '0' after being undefined
 
 // 'total' function declaration
 function total(...theNumbers) {
