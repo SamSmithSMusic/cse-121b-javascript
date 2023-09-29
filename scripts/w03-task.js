@@ -54,6 +54,7 @@ document.querySelector('#year').innerHTML = year;
 /* ARRAY METHODS - Functional Programming */
 /* Output Source Array */
 let myArray = [1,2,3,4,5,6,7,8,9,10,11,12,13];
+document.querySelector('#array').innerHTML = myArray;
 /* Output Odds Only Array */
 document.querySelector('#odds').innerHTML = myArray.filter(number => number % 2 != 0);
 /* Output Evens Only Array */
