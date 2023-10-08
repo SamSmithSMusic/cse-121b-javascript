@@ -27,7 +27,7 @@ imageElement.setAttribute('alt',`Profile image of ${fullName}`);
 
 
 /* Step 5 - Array */
-let fFoods = ["Tres Leches", "watermelon", "steak", "honeycomb icecream"]; 
+let fFoods = ["Tres Leches", "Watermelon", "Steak", "Honeycomb Icecream"]; 
 foodElement.innerHTML = `${fFoods}`;
 let singleFfood = "Funeral Potatos";
 fFoods.push(singleFfood);
