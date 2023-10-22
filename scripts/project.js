@@ -1,61 +1,58 @@
-/* W05: Programming Tasks */
 
-/* Declare and initialize global variables */
-const templesElement = document.querySelector("#temples");
-let templeList = [];
-/* async displayTemples Function */
-const displayTemples = (temples) => {
-    temples.forEach(temple => {
+const carsElement = document.querySelector("#cars");
+let carList = [];
+
+const displayCars = (carList) => {
+    carList.forEach(car => {
         let ar = document.createElement('article');
         let h3 = document.createElement('h3');
         let img = document.createElement('img');
 
-        h3.innerHTML = temple.templeName;
-        img.setAttribute('src',temple.imageUrl);
-        img.setAttribute('alt',temple.location);
+        h3.innerHTML = `${car.Make} ${car.Model}`;
+        img.setAttribute('src',car.src);
+        img.setAttribute('alt',`${car.Make} ${car.Type}`);
 
         ar.appendChild(h3);
         ar.appendChild(img);
-        templesElement.appendChild(ar);
+        carsElement.appendChild(ar);
     });
 }
 
-
-
-/* async getTemples Function using fetch()*/
-const getTemples = async () => {
+const getCars = async () => {
     const response = await fetch('https://run.mocky.io/v3/5bb6e031-e523-42fa-910a-60ed31688981');
-    templeList = await response.json()
-    displayTemples(templeList);
+    carList = await response.json()
+    displayCars(carList);
 }
 
-/* reset Function */
 const reset = () => {
-    templesElement.innerHTML = '';
+    carsElement.innerHTML = '';
 } 
 
-/* sortBy Function */
-const sortBy = (temples) => {
+const sortBy = (cars) => {
     reset();
     let filter = document.querySelector('#sortBy').value;
     switch (filter) {
-        case "utah":
-            displayTemples(templeList.filter(temple => temple.location.includes('Utah')));
+        case "super":
+            displayCars(cars.filter(car => car.Classification.includes('Super')));
             break;
-        case "notutah":
-            displayTemples(templeList.filter(temple => !temple.location.includes('Utah')));
+        case "enthusiast":
+            displayCars(cars.filter(car => !car.Classification.includes('Super')));
             break;
-        case "older":
-            displayTemples(templeList.filter(temple => new Date(temple.dedicated) < new Date(1950, 0, 1)));
+        case "japan":
+            displayCars(cars.filter(car => car.Make.includes("Nissan") || car.Make.includes("Honda") || car.Make.includes("Toyota") || car.Make.includes("Mazda") || car.Make.includes("Subaru") || car.Make.includes("Acura") || car.Make.includes("Lexus")));
+            break;
+        case "usa":
+            displayCars(cars.filter(car => car.Make.includes("Ford") || car.Make.includes("Chevrolet") || car.Make.includes("Dodge")));
+            break;
+        case "europe":
+            displayCars(cars.filter(car => car.Make.includes("Volkswagen") || car.Make.includes("BMW") || car.Make.includes("Audi") || car.Make.includes("Porsche") || car.Make.includes("Lamborghini") || car.Make.includes("Ferrari") || car.Make.includes("McLaren") || car.Make.includes("Aston Martin") || car.Make.includes("Mercedes")));
             break;
         case "all":
-            displayTemples(templeList);
+            displayCars(cars);
             break;
     }
 }
 
+getCars();
 
-getTemples();
-
-/* Event Listener */
-document.querySelector("#sortBy").addEventListener("change", () => {sortBy(templeList)});
+document.querySelector("#sortBy").addEventListener("change", () => {sortBy(carList)});

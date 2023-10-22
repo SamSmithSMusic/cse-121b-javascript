@@ -254,6 +254,14 @@ footer {
     margin-bottom: 3rem;
 }
 
+#cars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: .5rem;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
 #temples article {
     height: 250px;
     margin: .5rem;
